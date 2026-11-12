@@ -1,0 +1,8 @@
+target/ 
+.idea/
+.vscode/
+*.class
+
+# / pour ignorer toute ce dossier et ne le pusher pas dans le github pour ne pas etre refabriquer
+# . ignorer le dossier car intellig contient les reglage personnel de intilige (proteger qui utilise intellige )
+#   *.class pour ignorer les fichiers de classe java qui sont générer par le compilateur java.
