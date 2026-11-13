@@ -1,0 +1,29 @@
+name: CI/CD - democyber
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/democyber:latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Compile Java
+        run: mvn compile
+
+      - name: Build Java project with Maven
+        run: mvn clean package
