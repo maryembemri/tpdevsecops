@@ -39,6 +39,13 @@
     <dependency>
       <groupId>io.micrometer</groupId>
       <artifactId>micrometer-registry-prometheus</artifactId>
+      <!-- CVE-2026-14686 : HdrHistogram 2.2.2 (aucun correctif disponible) -->
+      <exclusions>
+        <exclusion>
+          <groupId>org.hdrhistogram</groupId>
+          <artifactId>HdrHistogram</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
   </dependencies>
 
